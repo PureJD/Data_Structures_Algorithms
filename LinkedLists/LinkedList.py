@@ -17,3 +17,9 @@ test_linked_list = LinkedList(23)
 print(test_linked_list.tail.value)
 print(test_linked_list.tail.value)
 print(test_linked_list.length)
+
+
+
+##test
+
+
