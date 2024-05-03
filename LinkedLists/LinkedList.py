@@ -7,9 +7,9 @@ class Node():
 class LinkedList():
     '''A class which will create the inital linked list'''
     def __init__(self, value):
-        prepended_node = Node(value)
-        self.head = prepended_node
-        self.tail = prepended_node
+        new_node = Node(value)
+        self.head = new_node
+        self.tail = new_node
         self.length = 1 
 
     def print_list(self):
@@ -49,13 +49,13 @@ class LinkedList():
     
     def prepend(self, value):
         '''A method that will create a new node with value, place this at the front and have the head point at it'''
-        prepended_node = Node(value)
+        new_node = Node(value)
         if self.length == 0:
-            self.head = prepended_node
-            self.tail = prepended_node
+            self.head = new_node
+            self.tail = new_node
         else:
-            prepended_node.next = self.head
-            self.head = prepended_node
+            new_node.next = self.head
+            self.head = new_node
         self.length += 1
         return True
 
