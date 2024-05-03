@@ -29,19 +29,44 @@ class LinkedList():
             self.tail = appended_node
         self.length += 1
         return True 
+    
+    def pop(self):
+        if self.length == 0:
+            return None
+        temp = self.head
+        pre = self.head
+        while temp.next is not None:
+            pre = temp
+            temp = temp.next         
+        self.tail = pre
+        self.tail.next = None
+        self.length -= 1
+        if self.length == 0:
+            self.head = None
+            self.tail = None
+        return temp
+        
+            
 
 
 
 #Test code 
-my_linked_list = LinkedList(2)
-my_linked_list.append(56)
-my_linked_list.append(24234232)
-add_value = 2
-for i in range(34):
-    my_linked_list.append(add_value)
-    add_value += 1
 
+my_linked_list = LinkedList(2)
+
+my_linked_list.append(56)
+my_linked_list.append(23)
+my_linked_list.append(24)
+my_linked_list.append(25)
+print('Pre pop')
 my_linked_list.print_list()
+my_linked_list.pop()
+
+print('After the pop')
+my_linked_list.print_list()
+
+
+
 
 
 
