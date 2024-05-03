@@ -33,14 +33,15 @@ class LinkedList():
 
 
 #Test code 
-test_linked_list = LinkedList(23)
-second_link = LinkedList(24)
-print(test_linked_list.tail.value)
-print(test_linked_list.tail.value)
-print(test_linked_list.length)
+my_linked_list = LinkedList(2)
+my_linked_list.append(56)
+my_linked_list.append(24234232)
+add_value = 2
+for i in range(34):
+    my_linked_list.append(add_value)
+    add_value += 1
 
-
-test_linked_list.print_list
+my_linked_list.print_list()
 
 
 
