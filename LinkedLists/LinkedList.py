@@ -59,6 +59,21 @@ class LinkedList():
         self.length += 1
         return True
 
+    def pop_first(self):
+        '''Pops the first element in the list. Moves the head pointer to the right and then removes the first element'''
+        if self.length == 0:
+            return None
+        temp = self.head
+        self.head = self.head.next 
+        temp.next = None
+        self.length -= 1
+        if self.length == 0:
+            self.tail = None
+        return temp 
+
+
+
+
         
             
 
@@ -77,6 +92,9 @@ print('After the pop')
 my_linked_list.print_list()
 print('Linked list after prepend')
 my_linked_list.prepend(1)
+my_linked_list.print_list()
+print('after second pop')
+my_linked_list.pop_first()
 my_linked_list.print_list()
 
 
