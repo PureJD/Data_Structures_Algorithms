@@ -7,9 +7,9 @@ class Node():
 class LinkedList():
     '''A class which will create the inital linked list'''
     def __init__(self, value):
-        new_node = Node(value)
-        self.head = new_node
-        self.tail = new_node
+        prepended_node = Node(value)
+        self.head = prepended_node
+        self.tail = prepended_node
         self.length = 1 
 
     def print_list(self):
@@ -31,6 +31,7 @@ class LinkedList():
         return True 
     
     def pop(self):
+        '''This method allows for the final node to be removed and for the tail to be redirected to the correct node'''
         if self.length == 0:
             return None
         temp = self.head
@@ -45,6 +46,19 @@ class LinkedList():
             self.head = None
             self.tail = None
         return temp
+    
+    def prepend(self, value):
+        '''A method that will create a new node with value, place this at the front and have the head point at it'''
+        prepended_node = Node(value)
+        if self.length == 0:
+            self.head = prepended_node
+            self.tail = prepended_node
+        else:
+            prepended_node.next = self.head
+            self.head = prepended_node
+        self.length += 1
+        return True
+
         
             
 
@@ -53,16 +67,16 @@ class LinkedList():
 #Test code 
 
 my_linked_list = LinkedList(2)
-
-my_linked_list.append(56)
-my_linked_list.append(23)
-my_linked_list.append(24)
-my_linked_list.append(25)
+my_linked_list.append(3)
+my_linked_list.append(4)
+my_linked_list.append(5)
 print('Pre pop')
 my_linked_list.print_list()
 my_linked_list.pop()
-
 print('After the pop')
+my_linked_list.print_list()
+print('Linked list after prepend')
+my_linked_list.prepend(1)
 my_linked_list.print_list()
 
 
