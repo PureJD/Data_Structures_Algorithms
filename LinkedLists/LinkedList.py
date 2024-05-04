@@ -89,6 +89,28 @@ class LinkedList():
             temp = temp.next
         temp.value = value
         return temp 
+    
+    def insert(self, index, value):
+        'A method that will take an index and a value, create a new node and point the node either side of the index to it'
+        if index < 0 or index > self.length:
+            return False
+        if index == 0:
+            return self.prepend(value)
+        if index == self.length:
+            return self.append(value)
+        new_node = Node(value)
+        temp = self.head
+        for _ in range(index -1):
+            temp = temp.next
+        new_node.next = temp.next
+        temp.next = new_node
+        self.length += 1
+        return True
+
+    
+
+            
+
 
 
 
@@ -118,6 +140,9 @@ print('requesting index 3...')
 print(my_linked_list.get(2))
 print('testing changing value 2 to 5')
 my_linked_list.set_value(0, 5)
+my_linked_list.print_list()
+print('time to insert a value ')
+my_linked_list.insert(1, 6)
 my_linked_list.print_list()
 
 
