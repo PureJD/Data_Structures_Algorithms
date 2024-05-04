@@ -80,6 +80,15 @@ class LinkedList():
             temp = temp.next
         return temp
 
+    def set_value(self, index, value): 
+        '''A method that will take arugements for index and value and change the index to the value using a temporay pointer variable'''
+        if index < 0 or index > self.length:
+            return None
+        temp = self.head
+        for _ in range(index):
+            temp = temp.next
+        temp.value = value
+        return temp 
 
 
 
@@ -107,7 +116,9 @@ my_linked_list.pop_first()
 my_linked_list.print_list()
 print('requesting index 3...')
 print(my_linked_list.get(2))
-
+print('testing changing value 2 to 5')
+my_linked_list.set_value(0, 5)
+my_linked_list.print_list()
 
 
 
