@@ -122,6 +122,20 @@ class LinkedList():
         self.length -= 1
         return temp 
 
+    def reverse(self):
+        '''This method will swap the head and tail. It will then use three variables to move through the list and the temp variable changes the pointer for each node'''
+        temp = self.head
+        self.head = self.tail
+        self.tail = temp
+        after = temp.next
+        before = None 
+        for _ in range(self.length):
+            after = temp.next
+            temp.next = before
+            before = temp 
+            temp = after
+
+
         
 
     
@@ -142,6 +156,7 @@ my_linked_list = LinkedList(2)
 my_linked_list.append(3)
 my_linked_list.append(4)
 my_linked_list.append(5)
+my_linked_list.append(6)
 print('Pre pop')
 my_linked_list.print_list()
 my_linked_list.pop()
@@ -163,7 +178,10 @@ my_linked_list.insert(1, 6)
 my_linked_list.print_list()
 print('testing the remove of index 1')
 my_linked_list.remove(1)
-my_linked_list.print_list() 
+my_linked_list.print_list()
+print('Lets try and reverse the remaining')
+my_linked_list.reverse()
+my_linked_list.print_list()
 
 
 
