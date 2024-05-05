@@ -107,6 +107,23 @@ class LinkedList():
         self.length += 1
         return True
 
+    def remove(self, index):
+        '''Remove method will move the previous pointer before the index to the node after the index node. It wil then move the index node to point at nothing, removing the node'''
+        if index < 0 or index >= self.length:
+            return None
+        if index == 0:
+            return self.pop_first()
+        if index == self.length -1:
+            return self.pop()
+        prev = self.get(index -1)
+        temp = prev.next
+        prev.next = temp.next
+        temp.next = None
+        self.length -= 1
+        return temp 
+
+        
+
     
 
             
@@ -144,7 +161,9 @@ my_linked_list.print_list()
 print('time to insert a value ')
 my_linked_list.insert(1, 6)
 my_linked_list.print_list()
-
+print('testing the remove of index 1')
+my_linked_list.remove(1)
+my_linked_list.print_list() 
 
 
 
