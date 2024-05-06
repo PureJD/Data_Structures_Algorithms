@@ -136,6 +136,7 @@ class LinkedList():
             temp = after
 
     def find_middle_node(self):
+        '''This method will loop through the entire list, the fast travelling at twice the speed as slow. Once fast has reached the end, slow would have been mid way and it will be returned.'''
         slow = self.head
         fast = self.head
         while fast is not None and fast.next is not None:
@@ -143,6 +144,16 @@ class LinkedList():
             fast = fast.next.next
         return slow
 
+    def has_loop(self):
+        '''This method is similar to the find the middle method, however it also checks to see if the values of fast and slow are the same at any stage as this would mean there is a loop in the nodes through caseless linking.'''
+        slow = self.head
+        fast = self.head
+        while fast is not None and fast.next is not None:
+            slow = slow.next
+            fast = fast.next.next
+            if slow == fast:
+                return True
+        return False
 
         
 
@@ -190,8 +201,10 @@ my_linked_list.print_list()
 print('Lets try and reverse the remaining')
 my_linked_list.reverse()
 my_linked_list.print_list()
-print('Seeking that middle node now')
+print('Seeking that middle node now (no representation in terminal return changed to print)')
 my_linked_list.find_middle_node()
+print('Now checking if the linked list has an accidential loop (Returns true or false)')
+my_linked_list
 
 
 
