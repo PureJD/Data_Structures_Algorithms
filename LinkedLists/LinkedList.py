@@ -155,6 +155,17 @@ class LinkedList():
                 return True
         return False
 
+    def find_kth_from_end(self, k):
+        '''This method will set fast to the value of K in steps ahead into the list. Both fast and slow then move through the list one step at a time. Once fast reaches the end, we can be sure that slow is at the requested place'''
+        slow = fast = self.head   
+        for _ in range(k):
+            if fast is None:
+                return None
+            fast = fast.next
+        while fast:
+            slow = slow.next
+            fast = fast.next
+        return slow
         
 
     
@@ -204,7 +215,9 @@ my_linked_list.print_list()
 print('Seeking that middle node now (no representation in terminal return changed to print)')
 my_linked_list.find_middle_node()
 print('Now checking if the linked list has an accidential loop (Returns true or false)')
-my_linked_list
+my_linked_list.has_loop()
+print('The next method will look for the element which is a specified distance from the end of the the list. K. I will request 2 from the end of our list. This method is working, change return to print to see the node and add .value to see the value')
+my_linked_list.find_kth_from_end(2)
 
 
 
