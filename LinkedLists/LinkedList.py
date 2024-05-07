@@ -166,6 +166,22 @@ class LinkedList():
             slow = slow.next
             fast = fast.next
         return slow
+
+    def remove_duplicates(self):
+        '''This method will remove duplicates from the list. It utilises the set() function in order to keep a record of all seen values '''
+        if not self.head or not self.head.next:
+            return  # If the list is empty or has only one element, return
+
+        seen = set()  # This will store the values we've seen so far
+        current = self.head
+        seen.add(current.value)  # Add the first node's value to the set
+        while current.next:  # Iterate until the end of the list
+            if current.next.value in seen:
+                current.next = current.next.next  # Skip the duplicate
+                self.length -= 1  # Decrease the length if you maintain it
+            else:
+                seen.add(current.next.value)  # Add new value to the set
+                current = current.next  # Move to the next node
         
 
     
@@ -218,6 +234,9 @@ print('Now checking if the linked list has an accidential loop (Returns true or 
 my_linked_list.has_loop()
 print('The next method will look for the element which is a specified distance from the end of the the list. K. I will request 2 from the end of our list. This method is working, change return to print to see the node and add .value to see the value')
 my_linked_list.find_kth_from_end(2)
+print('The remove duplicates function will now eliminate a 5 due to it being duplicate')
+my_linked_list.remove_duplicates()
+my_linked_list.print_list()
 
 
 
