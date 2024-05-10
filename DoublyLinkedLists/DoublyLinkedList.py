@@ -23,13 +23,14 @@ class Doublylinkedlist():
     def append(self, value):
         '''This function will create a new node and point the next and previous values before moving the tail across to the end'''
         new_node = Node(value)
-        if self.tail == None:
+        if self.head == None:
             self.head = new_node
             self.tail = new_node
         new_node.prev = self.tail
         self.tail.next = new_node
         self.tail = new_node
-        
+        self.length += 1
+        return True 
         
 
 test_list = Doublylinkedlist(5)
