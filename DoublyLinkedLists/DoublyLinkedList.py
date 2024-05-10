@@ -31,10 +31,28 @@ class Doublylinkedlist():
         self.tail = new_node
         self.length += 1
         return True 
+    
+    def pop(self):
+        '''This function will remove the final node and then move the tail across and severe the links'''
+        if self.length == 0:
+            return None
+        if self.length == 1:
+            self.head == None
+            self.tail == None
+        temp = self.tail
+        self.tail = self.tail.prev
+        self.tail.next = None
+        temp.prev = None
+        self.length -= 1
+        return temp 
+        
         
 
 test_list = Doublylinkedlist(5)
 test_list.print_list()
 print('Now a test for appending the value 6')
 test_list.append(6)
-test_list.print_list()        
+test_list.print_list()       
+print('Now the pop function will remove a number from the end')
+test_list.pop()
+test_list.print_list() 
