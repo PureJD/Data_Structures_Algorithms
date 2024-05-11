@@ -45,6 +45,20 @@ class Doublylinkedlist():
         temp.prev = None
         self.length -= 1
         return temp 
+    
+    def prepend(self, value):
+        '''This function will take a value, create a node, link the pointers to the new node and then move the head'''
+        new_node = Node(value)
+        if self.length == 0:
+            self.head = new_node
+            self.tail = new_node
+        else:
+            self.head.prev = new_node
+            new_node.next = self.head
+            self.head = new_node
+        self.length += 1
+        return True
+
         
         
 
@@ -56,3 +70,6 @@ test_list.print_list()
 print('Now the pop function will remove a number from the end')
 test_list.pop()
 test_list.print_list() 
+print('Time to prepend a value')
+test_list.prepend(8)
+test_list.print_list()
