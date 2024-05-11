@@ -39,10 +39,11 @@ class Doublylinkedlist():
         if self.length == 1:
             self.head == None
             self.tail == None
-        temp = self.tail
-        self.tail = self.tail.prev
-        self.tail.next = None
-        temp.prev = None
+        else:
+            temp = self.tail
+            self.tail = self.tail.prev
+            self.tail.next = None
+            temp.prev = None
         self.length -= 1
         return temp 
     
@@ -58,6 +59,24 @@ class Doublylinkedlist():
             self.head = new_node
         self.length += 1
         return True
+    
+    def pop_first(self):
+        '''This function will remove the first node and then remove the pointers which attach to it'''
+        if self.length == 0:
+            return None
+        temp = self.head
+        if self.length == 1:
+            self.head = None
+            self.tail = None
+        else:
+            self.head = self.head.next
+            temp.next = None
+            self.head.prev = None
+        self.length -= 1
+        return temp 
+
+        
+
 
         
         
@@ -72,4 +91,7 @@ test_list.pop()
 test_list.print_list() 
 print('Time to prepend a value')
 test_list.prepend(8)
+test_list.print_list()
+print('time to pop the first element')
+test_list.pop_first()
 test_list.print_list()
