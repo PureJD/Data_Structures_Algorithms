@@ -75,6 +75,23 @@ class Doublylinkedlist():
         self.length -= 1
         return temp 
 
+    def get(self, index):
+        '''This function has been optimised for doubly linked lists. It will move through elements from the head if the index is in the first half, and from the tail if in the second half'''
+        if index < 0 or index >= self.length:
+            return None
+        if index > self.length / 2:
+            temp = self.tail
+            for _ in range(self.length - index - 1):
+                temp = temp.prev
+        else:
+            temp = self.head
+            for _ in range(index):
+                temp = temp.next
+        return temp
+        
+            
+
+
         
 
 
@@ -85,6 +102,8 @@ test_list = Doublylinkedlist(5)
 test_list.print_list()
 print('Now a test for appending the value 6')
 test_list.append(6)
+test_list.append(7)
+test_list.append(7)
 test_list.print_list()       
 print('Now the pop function will remove a number from the end')
 test_list.pop()
@@ -94,4 +113,7 @@ test_list.prepend(8)
 test_list.print_list()
 print('time to pop the first element')
 test_list.pop_first()
+test_list.print_list()
+print('Time for a get function that will return a requested node. This will only return the node, to see the node value add .value after the return')
+test_list.get(2)
 test_list.print_list()
