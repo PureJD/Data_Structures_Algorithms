@@ -88,6 +88,23 @@ class Doublylinkedlist():
             for _ in range(index):
                 temp = temp.next
         return temp
+    
+    def set_value(self, index, value):
+        '''This function will take one of two paths to the index depending on the position in the list. It will then change the value at the requested index to the specified value'''
+        if index < 0 or index >= self.length:
+            return None
+        if index > self.length / 2:
+            temp = self.tail
+            for _ in range(self.length - index -1):
+                temp = self.tail.prev
+            temp.value = value
+            return temp
+        else:
+            temp = self.head
+            for _ in range(index):
+                temp = temp.next
+            temp.value = value
+            return temp
         
             
 
@@ -117,3 +134,6 @@ test_list.print_list()
 print('Time for a get function that will return a requested node. This will only return the node, to see the node value add .value after the return')
 test_list.get(2)
 test_list.print_list()
+print('time to test changing a value at a certain index')
+test_list.set_value(2, 10)
+test_list.print_list() 
