@@ -106,6 +106,26 @@ class Doublylinkedlist():
             temp.value = value
             return temp
         
+    def insert(self, index, value):
+        if index < 0 or index > self.length:
+            return False
+        if index == 0:
+            return self.prepend(value)
+        if index == self.length:
+            return self.append(value)
+        new_node = Node(value)
+        before = self.get(index -1)
+        after = before.next 
+        new_node.prev = before
+        new_node.next = after
+        before.next = new_node
+        after.prev = new_node
+        self.length += 1
+        return True
+
+            
+            
+        
             
 
 
@@ -121,6 +141,9 @@ print('Now a test for appending the value 6')
 test_list.append(6)
 test_list.append(7)
 test_list.append(7)
+test_list.append(4)
+test_list.append(8)
+test_list.append(9)
 test_list.print_list()       
 print('Now the pop function will remove a number from the end')
 test_list.pop()
@@ -137,3 +160,6 @@ test_list.print_list()
 print('time to test changing a value at a certain index')
 test_list.set_value(2, 10)
 test_list.print_list() 
+print('time to insert a new node at a certain index')
+test_list.insert(4, 11)
+test_list.print_list()
