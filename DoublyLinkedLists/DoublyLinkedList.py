@@ -124,6 +124,23 @@ class Doublylinkedlist():
         self.length += 1
         return True
 
+    def remove(self, index):
+        '''This function will remove a node at a certain index by adjusting pointers'''
+        if index < 0 or index > self.length:
+            return False
+        if index == 0:
+            return self.pop_first()
+        if index == self.length -1:
+            return self.pop()
+        before = self.get(index -1)
+        after = before.next
+        before.next = after.next
+        after.next.prev = before
+        after.next = None
+        after.prev = None
+        self.length -= 1
+        return True
+
             
             
         
@@ -163,4 +180,7 @@ test_list.set_value(2, 10)
 test_list.print_list() 
 print('time to insert a new node at a certain index')
 test_list.insert(4, 11)
+test_list.print_list()
+print('The remove functoin will remove a node in the list')
+test_list.remove(3)
 test_list.print_list()

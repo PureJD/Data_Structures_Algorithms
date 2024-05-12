@@ -237,7 +237,7 @@ my_linked_list.find_kth_from_end(2)
 print('The remove duplicates function will now eliminate a 5 due to it being duplicate')
 my_linked_list.remove_duplicates()
 my_linked_list.print_list()
-
+print(my_linked_list.length)
 
 
 
