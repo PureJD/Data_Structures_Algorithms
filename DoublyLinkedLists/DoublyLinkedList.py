@@ -107,6 +107,7 @@ class Doublylinkedlist():
             return temp
         
     def insert(self, index, value):
+        '''This function will locate the index, place a variable either side of where the new node is to go, then adjust the pointers using to variables to attach the node in the appropriate position'''
         if index < 0 or index > self.length:
             return False
         if index == 0:
