@@ -6,7 +6,12 @@
 #### - Linked Lists
 - Work has been completed in linked lists, which includes the creation of a linked list class object. 
 - Following the creation of the object many known methods have been recreated in the same file to provide a full and concise 'cheat sheet' for future work using linked lists.
-- Linked list creation, reverse, loop through, pop, pop first, append, prepend and find middles methods currently created. 
+- Linked list creation, reverse, loop through, pop, pop first, append, prepend and find middles methods currently created.
+#### - Doubly Linked Lists
+- Work has been completed in Doubly linked lists, which includes the creation of a linked list class object with a next value and a previous value per node, allowing more optimised functionality. 
+- As above, this repository will be updated as I encounter new and interestig examples and methods of linked lists in real world problems and coding problems. 
+
+
 
 
 
