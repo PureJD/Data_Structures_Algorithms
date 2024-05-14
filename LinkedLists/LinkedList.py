@@ -171,7 +171,6 @@ class LinkedList():
         '''This method will remove duplicates from the list. It utilises the set() function in order to keep a record of all seen values '''
         if not self.head or not self.head.next:
             return  # If the list is empty or has only one element, return
-
         seen = set()  # This will store the values we've seen so far
         current = self.head
         seen.add(current.value)  # Add the first node's value to the set
