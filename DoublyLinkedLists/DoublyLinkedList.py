@@ -141,6 +141,14 @@ class Doublylinkedlist():
         self.length -= 1
         return True
 
+    def find_middle_node(self):
+        '''This method will loop through the entire list, the fast travelling at twice the speed as slow. Once fast has reached the end, slow would have been mid way and it will be returned. This method will return the value to the right when there are an even amount of nodes'''
+        slow = self.head
+        fast = self.head
+        while fast is not None and fast.next is not None:
+            slow = slow.next
+            fast = fast.next.next
+        return slow #In order to see value for testing change this to 'print(slow.value)'
             
             
         
@@ -183,4 +191,7 @@ test_list.insert(4, 11)
 test_list.print_list()
 print('The remove functoin will remove a node in the list')
 test_list.remove(3)
+test_list.print_list()
+print('Testing the find middle function ')
+test_list.find_middle_node() 
 test_list.print_list()
