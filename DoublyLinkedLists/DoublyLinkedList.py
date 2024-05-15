@@ -149,6 +149,21 @@ class Doublylinkedlist():
             slow = slow.next
             fast = fast.next.next
         return slow #In order to see value for testing change this to 'print(slow.value)'
+    
+
+    #Unfinished
+    def reverse(self):
+        '''This method will swap the head and tail. It will then use three variables to move through the list and the temp variable changes the pointer for each node'''
+        temp = self.head
+        self.head = self.tail
+        self.tail = temp
+        after = temp.next
+        before = None 
+        for _ in range(self.length):
+            after = temp.next
+            temp.next = before
+            before = temp 
+            temp = after
             
             
         
