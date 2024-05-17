@@ -150,20 +150,18 @@ class Doublylinkedlist():
             fast = fast.next.next
         return slow #In order to see value for testing change this to 'print(slow.value)'
     
-
-    #Unfinished
     def reverse(self):
-        '''This method will swap the head and tail. It will then use three variables to move through the list and the temp variable changes the pointer for each node'''
-        temp = self.head
+        '''This method will swap the head and tail. It will then use variables to move through the list and the temp variable changes the pointer for each node'''
+        if self.length <= 1:
+            return None
+        current = self.head
         self.head = self.tail
-        self.tail = temp
-        after = temp.next
-        before = None 
+        self.tail = current
         for _ in range(self.length):
-            after = temp.next
-            temp.next = before
-            before = temp 
-            temp = after
+            next_node = current.next
+            current.next = current.prev
+            current.prev = next_node
+            current = next_node
             
             
         
@@ -209,4 +207,7 @@ test_list.remove(3)
 test_list.print_list()
 print('Testing the find middle function ')
 test_list.find_middle_node() 
+test_list.print_list()
+print('Time to reverse the list')
+test_list.reverse()
 test_list.print_list()
