@@ -152,16 +152,18 @@ class Doublylinkedlist():
     
     def reverse(self):
         '''This method will swap the head and tail. It will then use variables to move through the list and the temp variable changes the pointer for each node'''
-        if self.length <= 1:
-            return None
+        if self.length < 2: 
+            return False
         current = self.head
-        self.head = self.tail
-        self.tail = current
-        for _ in range(self.length):
+        prev = None
+        self.tail = self.head
+        while current:
             next_node = current.next
-            current.next = current.prev
-            current.prev = next_node
+            current.next = prev
+            prev = current
             current = next_node
+        self.head = prev
+        return True
             
     def find_middle_node(self):
         '''This method will loop through the entire list, the fast travelling at twice the speed as slow. Once fast has reached the end, slow would have been mid way and it will be returned.'''

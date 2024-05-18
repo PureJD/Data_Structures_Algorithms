@@ -124,16 +124,19 @@ class LinkedList():
 
     def reverse(self):
         '''This method will swap the head and tail. It will then use three variables to move through the list and the temp variable changes the pointer for each node'''
-        temp = self.head
-        self.head = self.tail
-        self.tail = temp
-        after = temp.next
-        before = None 
-        for _ in range(self.length):
-            after = temp.next
-            temp.next = before
-            before = temp 
-            temp = after
+        if self.length < 2: 
+            return False
+        current = self.head
+        prev = None
+        self.tail = self.head
+        while current:
+            next_node = current.next
+            current.next = prev
+            prev = current
+            current = next_node
+        self.head = prev
+        return True
+
 
     def find_middle_node(self):
         '''This method will loop through the entire list, the fast travelling at twice the speed as slow. Once fast has reached the end, slow would have been mid way and it will be returned.'''
@@ -181,6 +184,20 @@ class LinkedList():
             else:
                 seen.add(current.next.value)  # Add new value to the set
                 current = current.next  # Move to the next node
+                
+    def shuffle(self):
+        '''This function will shuffle the nodes in a list by means of reversing the list, finding the middle two digits, splitting the list into two and then reattaching the first half to the end. If a more complete shuffle is required, run the splitting and reattaching in a loop. Do not run the whole function again as it will undo the shuffle.  '''
+        if self.length < 2:
+            return None
+        if self.length == 2 or self.length == 3:
+            return self.reverse()
+        self.reverse()
+        temp_left = self.find_middle_node()
+        temp_right = temp_left.next
+        temp_left.next = None
+        self.tail.next = self.head
+        return True
+        
         
 
     
@@ -237,6 +254,10 @@ print('The remove duplicates function will now eliminate a 5 due to it being dup
 my_linked_list.remove_duplicates()
 my_linked_list.print_list()
 print(my_linked_list.length)
+print('Test of the shuffle function')
+
+my_linked_list.shuffle()
+my_linked_list.print_list()
 
 
 
