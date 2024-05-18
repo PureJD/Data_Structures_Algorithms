@@ -182,6 +182,26 @@ class Doublylinkedlist():
             if slow == fast:
                 return True
         return False
+    
+    def shuffle(self):
+        '''This function will shuffle the nodes in a list by means of reversing the list, finding the middle two digits, splitting the list into two and then reattaching the first half to the end. If a more complete shuffle is required, run the splitting and reattaching in a loop. Do not run the whole function again as it will undo the shuffle.  '''
+        if self.length < 2:
+            return None
+        if self.length == 2 or self.length == 3:
+            return self.reverse()
+        self.reverse()
+        temp_right = self.find_middle_node()
+        temp_left = temp_right.prev
+        temp_right.prev = None
+        temp_left.next = None
+        self.tail.next = self.head
+        self.head.prev = self.tail
+        self.head = temp_right
+        self.tail = temp_left
+        return True
+        
+        
+        
         
             
 
@@ -231,4 +251,7 @@ test_list.reverse()
 test_list.print_list()
 print('The next function will find the middle node and return it. In order to see the node result please change return to print and then add .value to test')
 test_list.find_middle_node()
+test_list.print_list()
+print('Time to shuffle the nodes')
+test_list.shuffle()
 test_list.print_list()
