@@ -171,6 +171,17 @@ class Doublylinkedlist():
             slow = slow.next
             fast = fast.next.next
         return slow  
+    
+    def has_loop(self):
+        '''This method is similar to the find the middle method, however it also checks to see if the values of fast and slow are the same at any stage as this would mean there is a loop in the nodes through caseless linking.'''
+        slow = self.head
+        fast = self.head
+        while fast is not None and fast.next is not None:
+            slow = slow.next
+            fast = fast.next.next
+            if slow == fast:
+                return True
+        return False
         
             
 
