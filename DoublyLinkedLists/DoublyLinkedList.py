@@ -163,7 +163,14 @@ class Doublylinkedlist():
             current.prev = next_node
             current = next_node
             
-            
+    def find_middle_node(self):
+        '''This method will loop through the entire list, the fast travelling at twice the speed as slow. Once fast has reached the end, slow would have been mid way and it will be returned.'''
+        slow = self.head
+        fast = self.head
+        while fast is not None and fast.next is not None:
+            slow = slow.next
+            fast = fast.next.next
+        return slow  
         
             
 
@@ -210,4 +217,7 @@ test_list.find_middle_node()
 test_list.print_list()
 print('Time to reverse the list')
 test_list.reverse()
+test_list.print_list()
+print('The next function will find the middle node and return it. In order to see the node result please change return to print and then add .value to test')
+test_list.find_middle_node()
 test_list.print_list()
