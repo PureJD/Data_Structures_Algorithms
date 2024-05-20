@@ -29,6 +29,22 @@ class Queue:
             self.last.next = new_node
             self.last = new_node
         self.length += 1
+        
+    def dequeue(self):
+        '''This function will remove the node that is first is queue'''
+        if self.length == 0:
+            return None
+        temp = self.first 
+        if self.length == 1:
+            self.first = None
+            self.last = None
+        else:
+            self.first = self.first.next
+            temp.next = None
+        self.length -= 1
+        return temp 
+            
+            
             
          
             
@@ -37,6 +53,9 @@ my_queue = Queue(5)
 my_queue.print_queue()
 print('Add a new node to the queue')
 my_queue.enqueue(6)
+my_queue.print_queue()
+print('Time to remove the node that is first in queue')
+my_queue.dequeue()
 my_queue.print_queue()
 
         
