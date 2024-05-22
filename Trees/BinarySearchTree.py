@@ -16,6 +16,7 @@ class BinarySearchTree():
             self.length = 1
     '''   
     def insert(self, value):
+        '''This method will create a pointer in temp and move through the list comparing the new node value to nodes to determine where it should be placed. If the value is less than current nodes it will move left and else it will move right. If the node value already exists in the tree, it will return false'''
         new_node = Node(value)
         if self.root == None:
             self.root = new_node
@@ -41,9 +42,11 @@ class BinarySearchTree():
             
         
 my_b_search = BinarySearchTree()
-my_b_search.insert(12)
-my_b_search.insert(23)
-my_b_search.insert(56)
-
+my_b_search.insert(2)
+print(my_b_search.root.value)
+my_b_search.insert(1)
+my_b_search.insert(3)
+print(my_b_search.root.left.value)
+print(my_b_search.root.right.value)
             
         
