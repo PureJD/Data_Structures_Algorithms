@@ -9,7 +9,10 @@
 - Linked list creation, reverse, loop through, pop, pop first, append, prepend and find middles methods currently created.
 #### - Doubly Linked Lists
 - Work has been completed in Doubly linked lists, which includes the creation of a linked list class object with a next value and a previous value per node, allowing more optimised functionality. 
-- As above, this repository will be updated as I encounter new and interestig examples and methods of linked lists in real world problems and coding problems. 
+- As above, this repository will be updated as I encounter new and interestig examples and methods of linked lists in real world problems and coding problems.
+#### - Stacks and Queues
+- An object has been created to show representations of both stacks and queues.
+- Both stack and queue contain functions which would be used with their data types. The functions are created with efficiency in mind, meaning the nodes have been taken and added from the optimal side to ensure O(1) over O(n) where possible. 
 
 
 
