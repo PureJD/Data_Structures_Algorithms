@@ -38,6 +38,20 @@ class BinarySearchTree():
                         return True
                     else:
                         temp = temp.right
+    
+    def contains(self, value):
+        '''This will search through the tree and return True if the sought value if found'''
+        if self.root == None:
+            return False
+        temp = self.root
+        while temp is not None:
+            if temp.value < value:
+                temp = temp.right
+            elif temp.value > value:
+                temp = temp.left
+            else:
+                return True 
+             
        
             
         
@@ -48,5 +62,6 @@ my_b_search.insert(1)
 my_b_search.insert(3)
 print(my_b_search.root.left.value)
 print(my_b_search.root.right.value)
+print(my_b_search.contains(8))
             
         
