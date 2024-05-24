@@ -62,6 +62,6 @@ my_b_search.insert(1)
 my_b_search.insert(3)
 print(my_b_search.root.left.value)
 print(my_b_search.root.right.value)
-print(my_b_search.contains(8))
+print(my_b_search.contains(2))
             
         
