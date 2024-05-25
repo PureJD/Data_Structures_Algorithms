@@ -54,10 +54,11 @@ class BinarySearchTree():
              
        
             
-        
+print('Initally make the list')   
 my_b_search = BinarySearchTree()
 my_b_search.insert(2)
 print(my_b_search.root.value)
+print('insert multiple values')
 my_b_search.insert(1)
 my_b_search.insert(3)
 print(my_b_search.root.left.value)
