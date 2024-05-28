@@ -13,6 +13,10 @@
 #### - Stacks and Queues
 - An object has been created to show representations of both stacks and queues.
 - Both stack and queue contain functions which would be used with their data types. The functions are created with efficiency in mind, meaning the nodes have been taken and added from the optimal side to ensure O(1) over O(n) where possible. 
+#### - Binary Search Tree
+- This method of search uses divide and conquer and nodes in order to search large quantities of data faster.
+#### - Hashtable
+- 
 
 
 
