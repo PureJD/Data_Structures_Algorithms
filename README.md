@@ -16,7 +16,7 @@
 #### - Binary Search Tree
 - This method of search uses divide and conquer and nodes in order to search large quantities of data faster.
 #### - Hashtable
-- 
+- This method of search will be added in full 
 
 
 
