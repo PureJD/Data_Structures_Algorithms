@@ -30,6 +30,15 @@ class HashTable:
                 if self.data_map[index][i][0] == key:
                     return self.data_map[index][i][1]
         return None
+    
+    def keys(self):
+        '''This function will return all the keys in the hash table'''
+        keys = []
+        for i in range(len(self.data_map)):
+            if self.data_map[i] is not None:
+                for j in range(len(self.data_map[i])):
+                    keys.append(self.data_map[i][j][0])
+        return keys
             
 hash_table = HashTable()
 print('The below will print the hash table with all values currently set to None')
@@ -39,5 +48,7 @@ hash_table.set_item('grapes', 10000)
 hash_table.print_table()
 print('The below code will test the get_item function')
 print(hash_table.get_item('grapes'))
-print(hash_table.get_item('apples'))    
+print(hash_table.get_item('apples'))
+print('The below code will test the keys function')
+print(hash_table.keys())    
 
