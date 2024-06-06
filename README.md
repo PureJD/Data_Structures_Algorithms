@@ -16,7 +16,9 @@
 #### - Binary Search Tree
 - This method of search uses divide and conquer and nodes in order to search large quantities of data faster.
 #### - Hashtable
-- This method of search will be added in full 
+- This method of search and storage which carries efficient speeds however, in Python the built in dictionary objects will in most cases be used over creating your own hashtable object.
+#### - Graphs
+- This is a method of plotting relationships between nodes and can be used for such projects of mapping by weighing connections to determine the most efficient route between nodes. 
 
 
 
